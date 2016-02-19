@@ -11,18 +11,26 @@
 #import "MBProgressHUD.h"
 @interface ForgetPasswordViewController (){
     MBProgressHUD *hud;
+    UIActivityIndicatorView * indicator_View;
 }
 
 @end
 
 @implementation ForgetPasswordViewController
-@synthesize buttonSubmitProp,txt_email;
+@synthesize buttonSubmitProp,txt_email,img_indicatorView;
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     buttonSubmitProp.layer.cornerRadius = 19.35;
-
+    indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    [self.view addSubview:indicator_View];
 }
+-(void)viewWillAppear:(BOOL)animated
+{
+    img_indicatorView.hidden = YES;
+}
+
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -52,9 +60,11 @@
     if (txt_email.text.length >0) {
         if ([emailTest evaluateWithObject:txt_email.text] == YES) {
             //do action
-            WebserviceViewController *web = [[WebserviceViewController alloc]init];
-            [web ForgetPassword:@selector(GetResultofForgetPassword:) tempTarget:self :txt_email.text];
-            hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+            //for indicator view
+            buttonSubmitProp.hidden = YES;
+            img_indicatorView.hidden = NO;
+            [indicator_View startAnimating];
+            [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
         }
         else
         {
@@ -73,6 +83,12 @@
 
     }
 }
+-(void)SubmitClicked
+{
+    WebserviceViewController *web = [[WebserviceViewController alloc]init];
+    [web ForgetPassword:@selector(GetResultofForgetPassword:) tempTarget:self :txt_email.text];
+    //hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
 -(void)GetResultofForgetPassword:(NSDictionary *)dict_Responce{
     NSLog(@"%@",dict_Responce);
     [hud hide:YES];
@@ -83,9 +99,13 @@
         if ([[[dict_Responce valueForKey:@"response"]valueForKey:@"success"] intValue]==1) {
             [self.navigationController popViewControllerAnimated:YES];
             [[[UIAlertView alloc]initWithTitle:@"" message:@"Your password send to your registered mail." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            [indicator_View stopAnimating];
         }
         else{
             [[[UIAlertView alloc]initWithTitle:@"" message:@"Email id not exist." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            buttonSubmitProp.hidden = NO;
+            img_indicatorView.hidden = YES;
+            [indicator_View stopAnimating];
         }
         
     }

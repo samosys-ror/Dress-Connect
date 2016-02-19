@@ -10,6 +10,7 @@
 #import "friendTableViewCell.h"
 #import "HomeViewController.h"
 #import "EventViewController.h"
+#import "SettingViewController.h"
 
 @interface OutfitViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITabBarDelegate>
 //- (IBAction)but_you:(id)sender;

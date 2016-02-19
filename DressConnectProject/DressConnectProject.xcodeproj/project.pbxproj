@@ -41,6 +41,8 @@
 		282D969E1C75C3E2005CB4DD /* reply_icon.png in Resources */ = {isa = PBXBuildFile; fileRef = 282D96941C75C3E2005CB4DD /* reply_icon.png */; };
 		282D969F1C75C3E2005CB4DD /* reply_icon@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 282D96951C75C3E2005CB4DD /* reply_icon@2x.png */; };
 		282D96A11C75C67D005CB4DD /* images-7.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 282D96A01C75C67D005CB4DD /* images-7.jpeg */; };
+		28AAA55C1C773C5300125132 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAA55B1C773C5300125132 /* SettingViewController.m */; };
+		28AAA55F1C773DD600125132 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAA55E1C773DD600125132 /* SettingTableViewCell.m */; };
 		28F930C01C71F84700556337 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F930BF1C71F84700556337 /* main.m */; };
 		28F930C31C71F84700556337 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F930C21C71F84700556337 /* AppDelegate.m */; };
 		28F930C61C71F84700556337 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F930C51C71F84700556337 /* ViewController.m */; };
@@ -150,6 +152,10 @@
 		282D96941C75C3E2005CB4DD /* reply_icon.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = reply_icon.png; sourceTree = "<group>"; };
 		282D96951C75C3E2005CB4DD /* reply_icon@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "reply_icon@2x.png"; sourceTree = "<group>"; };
 		282D96A01C75C67D005CB4DD /* images-7.jpeg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "images-7.jpeg"; sourceTree = "<group>"; };
+		28AAA55A1C773C5300125132 /* SettingViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingViewController.h; sourceTree = "<group>"; };
+		28AAA55B1C773C5300125132 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
+		28AAA55D1C773DD600125132 /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
+		28AAA55E1C773DD600125132 /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
 		28F930BA1C71F84700556337 /* DressConnectProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DressConnectProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F930BE1C71F84700556337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F930BF1C71F84700556337 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -299,6 +305,17 @@
 			name = "Custom Class";
 			sourceTree = "<group>";
 		};
+		28AAA5591C773C2300125132 /* SettingView */ = {
+			isa = PBXGroup;
+			children = (
+				28AAA55A1C773C5300125132 /* SettingViewController.h */,
+				28AAA55B1C773C5300125132 /* SettingViewController.m */,
+				28AAA55D1C773DD600125132 /* SettingTableViewCell.h */,
+				28AAA55E1C773DD600125132 /* SettingTableViewCell.m */,
+			);
+			name = SettingView;
+			sourceTree = "<group>";
+		};
 		28F930B11C71F84700556337 = {
 			isa = PBXGroup;
 			children = (
@@ -321,6 +338,7 @@
 			isa = PBXGroup;
 			children = (
 				28F930C71C71F84800556337 /* Main.storyboard */,
+				28AAA5591C773C2300125132 /* SettingView */,
 				282D96511C75A898005CB4DD /* OutfitsGroup */,
 				282D964D1C759F14005CB4DD /* CreateEventGroup */,
 				28FE8EE71C74826100A7902D /* EventGroupController */,
@@ -657,6 +675,7 @@
 				280F68E01C73343500D89D70 /* GetStartedViewController.m in Sources */,
 				282D967D1C75AD60005CB4DD /* NVSlideMenuController.m in Sources */,
 				282D968B1C75C126005CB4DD /* friendTableViewCell.m in Sources */,
+				28AAA55F1C773DD600125132 /* SettingTableViewCell.m in Sources */,
 				28FE8EE61C747C7500A7902D /* HomeViewController.m in Sources */,
 				282D967E1C75AD60005CB4DD /* Reachability.m in Sources */,
 				28F930FF1C720E5500556337 /* ForgetPasswordViewController.m in Sources */,
@@ -674,6 +693,7 @@
 				282D96841C75AD60005CB4DD /* SBJsonParser.m in Sources */,
 				28FE8EEA1C74827D00A7902D /* EventViewController.m in Sources */,
 				282D96821C75AD60005CB4DD /* SBJSON.m in Sources */,
+				28AAA55C1C773C5300125132 /* SettingViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

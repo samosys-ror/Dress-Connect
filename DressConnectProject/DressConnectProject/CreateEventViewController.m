@@ -16,13 +16,17 @@
     UIDatePicker *datePicker;
     WebserviceViewController *web;
     MBProgressHUD *HUD;
+    UIActivityIndicatorView * indicator_View;
 }
 @end
 
 @implementation CreateEventViewController
-@synthesize  txt_date,txt_dressCode,txt_eventTitle,txt_location,lbl_done,but_done,but_createProp;
+@synthesize  txt_date,txt_dressCode,txt_eventTitle,txt_location,lbl_done,but_done,but_createProp,img_indicatorView;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    txt_dressCode.delegate = self;
+    txt_eventTitle.delegate = self;
+    txt_location.delegate = self;
     // Do any additional setup after loading the view.
     but_createProp.layer.cornerRadius  = 19.35;
     //for Date Picker
@@ -31,11 +35,15 @@
     [datePicker setDate:[NSDate date]];
     [datePicker setDatePickerMode:UIDatePickerModeDate];
     [datePicker addTarget:self action:@selector(updateTextField:) forControlEvents:UIControlEventValueChanged];
+    datePicker.minimumDate = [NSDate date];
     [txt_date setInputView:datePicker];
     
     // For Button Done for Date Picker
     [but_done addTarget:self action:@selector(butDoneclicked) forControlEvents:UIControlEventTouchUpInside];
-    
+    // For Indicator View
+    indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    [self.view addSubview:indicator_View];
 }
 -(void)butDoneclicked
 {
@@ -47,6 +55,7 @@
 {
     but_done.hidden = YES;
     lbl_done.hidden = YES;
+    img_indicatorView.hidden = YES;
 }
 
 -(void)updateTextField:(id)sender
@@ -97,32 +106,49 @@
 {
     if (txt_eventTitle.text.length > 0 && txt_date.text.length > 0 && txt_dressCode.text.length > 0 && txt_location.text.length > 0)
     {
-        NSString *userid = [[NSUserDefaults standardUserDefaults]valueForKey:@"userid"];
+        
     //do Action
-        web = [[WebserviceViewController alloc]init];
-        [web InsertEvent:@selector(getcreateEventResult:) tempTarget:self :userid :txt_eventTitle.text :txt_location.text :txt_dressCode.text];
-        HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    }
+        //for indicator view
+        but_createProp.hidden = YES;
+        img_indicatorView.hidden = NO;
+        [indicator_View startAnimating];
+        [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
+        }
     else{
         UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Please Fill all the Field" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
     }
     
 }
+-(void)SubmitClicked
+{
+    NSString *userid = [[NSUserDefaults standardUserDefaults]valueForKey:@"userid"];
+    web = [[WebserviceViewController alloc]init];
+    [web InsertEvent:@selector(getcreateEventResult:) tempTarget:self :userid :txt_eventTitle.text :txt_location.text :txt_dressCode.text];
+   // HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+
+    
+}
 -(void)getcreateEventResult:(NSDictionary *)dict_Responce{
     NSLog(@"%@",dict_Responce);
-    [HUD hide:YES];
+    //[HUD hide:YES];
     if ([dict_Responce isEqual:[NSNull null]]) {
         [[[UIAlertView alloc]initWithTitle:@"" message:@"Server error" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
     }
     else{
         if ([[[dict_Responce valueForKey:@"response"]valueForKey:@"success"] intValue]==1) {
-//            HomeViewController * home = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
-//            [self.navigationController pushViewController:home animated:YES];
+            
+            [self.navigationController popViewControllerAnimated:YES];
+            
             [[[UIAlertView alloc]initWithTitle:@"" message:@"Event Created Successful." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            [indicator_View stopAnimating];
         }
         else{
             [[[UIAlertView alloc]initWithTitle:@"" message:@"Some Error in Creating Event" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
+            but_createProp.hidden = NO;
+            img_indicatorView.hidden = YES;
+            [indicator_View stopAnimating];
+
         }
         
     }

@@ -13,5 +13,6 @@
 @property (strong, nonatomic) IBOutlet UITextField *txt_email;
 - (IBAction)buttonSubmit:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *buttonSubmitProp;
+@property IBOutlet UIImageView * img_indicatorView;
 -(IBAction)hideKey:(id)sender;
 @end

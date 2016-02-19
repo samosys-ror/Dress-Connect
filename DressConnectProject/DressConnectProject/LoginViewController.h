@@ -16,7 +16,10 @@
 @property (strong, nonatomic) IBOutlet UIButton *loginButtonProp;
 @property (strong, nonatomic) IBOutlet UITextField *txt_Loginemail;
 @property (strong, nonatomic) IBOutlet UITextField *txt_loginPassword;
+@property IBOutlet UIImageView * img_indicatorView;
+
 - (IBAction)backButton:(id)sender;
 -(IBAction)hideKey:(id)sender;
 -(IBAction)ButtonforgotPassword:(id)sender;
+
 @end
