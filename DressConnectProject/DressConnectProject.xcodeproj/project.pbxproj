@@ -84,6 +84,14 @@
 		28FE8EE61C747C7500A7902D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FE8EE51C747C7500A7902D /* HomeViewController.m */; };
 		28FE8EEA1C74827D00A7902D /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FE8EE91C74827D00A7902D /* EventViewController.m */; };
 		28FE8EF31C74997C00A7902D /* DescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FE8EF21C74997C00A7902D /* DescriptionTableViewCell.m */; };
+		B0138DB21C77169100EB49A4 /* bg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAC1C77169100EB49A4 /* bg1.jpg */; };
+		B0138DB31C77169100EB49A4 /* bg1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAD1C77169100EB49A4 /* bg1@2x.jpg */; };
+		B0138DB41C77169100EB49A4 /* bg1@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAE1C77169100EB49A4 /* bg1@3x.jpg */; };
+		B0138DB51C77169100EB49A4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAF1C77169100EB49A4 /* logo.png */; };
+		B0138DB61C77169100EB49A4 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0138DB01C77169100EB49A4 /* logo@2x.png */; };
+		B0138DB71C77169100EB49A4 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0138DB11C77169100EB49A4 /* logo@3x.png */; };
+		B0138DC21C772BBF00EB49A4 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B0138DBD1C772BBF00EB49A4 /* JVFloatLabeledTextField.m */; };
+		B0138DC41C772BBF00EB49A4 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = B0138DC11C772BBF00EB49A4 /* NSString+TextDirectionality.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -206,6 +214,16 @@
 		28FE8EE91C74827D00A7902D /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		28FE8EF11C74997C00A7902D /* DescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionTableViewCell.h; sourceTree = "<group>"; };
 		28FE8EF21C74997C00A7902D /* DescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionTableViewCell.m; sourceTree = "<group>"; };
+		B0138DAC1C77169100EB49A4 /* bg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg1.jpg; sourceTree = "<group>"; };
+		B0138DAD1C77169100EB49A4 /* bg1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg1@2x.jpg"; sourceTree = "<group>"; };
+		B0138DAE1C77169100EB49A4 /* bg1@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg1@3x.jpg"; sourceTree = "<group>"; };
+		B0138DAF1C77169100EB49A4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		B0138DB01C77169100EB49A4 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		B0138DB11C77169100EB49A4 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		B0138DBC1C772BBF00EB49A4 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		B0138DBD1C772BBF00EB49A4 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		B0138DC01C772BBF00EB49A4 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		B0138DC11C772BBF00EB49A4 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -267,6 +285,7 @@
 		282D96551C75AD3A005CB4DD /* Custom Class */ = {
 			isa = PBXGroup;
 			children = (
+				B0138DBB1C772B9500EB49A4 /* JVFloatLabeledTextField */,
 				282D96561C75AD60005CB4DD /* WebserviceViewController.h */,
 				282D96571C75AD60005CB4DD /* WebserviceViewController.m */,
 				282D965E1C75AD60005CB4DD /* GoogleOAuth.h */,
@@ -381,6 +400,12 @@
 		28F930E41C71F86700556337 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				B0138DAC1C77169100EB49A4 /* bg1.jpg */,
+				B0138DAD1C77169100EB49A4 /* bg1@2x.jpg */,
+				B0138DAE1C77169100EB49A4 /* bg1@3x.jpg */,
+				B0138DAF1C77169100EB49A4 /* logo.png */,
+				B0138DB01C77169100EB49A4 /* logo@2x.png */,
+				B0138DB11C77169100EB49A4 /* logo@3x.png */,
 				282D96A01C75C67D005CB4DD /* images-7.jpeg */,
 				282D968C1C75C3E2005CB4DD /* checkmark_icon.png */,
 				282D968D1C75C3E2005CB4DD /* checkmark_icon@2x.png */,
@@ -501,6 +526,17 @@
 			name = EventGroupController;
 			sourceTree = "<group>";
 		};
+		B0138DBB1C772B9500EB49A4 /* JVFloatLabeledTextField */ = {
+			isa = PBXGroup;
+			children = (
+				B0138DBC1C772BBF00EB49A4 /* JVFloatLabeledTextField.h */,
+				B0138DBD1C772BBF00EB49A4 /* JVFloatLabeledTextField.m */,
+				B0138DC01C772BBF00EB49A4 /* NSString+TextDirectionality.h */,
+				B0138DC11C772BBF00EB49A4 /* NSString+TextDirectionality.m */,
+			);
+			name = JVFloatLabeledTextField;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -581,10 +617,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0138DB21C77169100EB49A4 /* bg1.jpg in Resources */,
+				B0138DB61C77169100EB49A4 /* logo@2x.png in Resources */,
 				28FE8ED01C7474E200A7902D /* tab_bar_bg.png in Resources */,
 				28F930E91C71F89B00556337 /* splash@2x.png in Resources */,
 				282D969B1C75C3E2005CB4DD /* listr_check@2x.png in Resources */,
 				28F930E81C71F89B00556337 /* splash.png in Resources */,
+				B0138DB51C77169100EB49A4 /* logo.png in Resources */,
 				28FE8ECE1C7474E200A7902D /* hanger_icon_hover.png in Resources */,
 				282D969C1C75C3E2005CB4DD /* listr_uncheck.png in Resources */,
 				28F930FB1C71FCC500556337 /* fb_button@2x.png in Resources */,
@@ -598,11 +637,14 @@
 				28F930F91C71FCC500556337 /* back_arrow.png in Resources */,
 				282D964B1C759C05005CB4DD /* cross_icon.png in Resources */,
 				28F930CB1C71F84800556337 /* Images.xcassets in Resources */,
+				B0138DB31C77169100EB49A4 /* bg1@2x.jpg in Resources */,
 				28FE8ECF1C7474E200A7902D /* hanger_icon_hover@2x.png in Resources */,
 				282D96991C75C3E2005CB4DD /* comments_icon@2x.png in Resources */,
 				28FE8ECD1C7474E200A7902D /* hanger_icon@2x.png in Resources */,
 				28F930F71C71FCC500556337 /* fb_button.png in Resources */,
+				B0138DB71C77169100EB49A4 /* logo@3x.png in Resources */,
 				28FE8EC61C7474E200A7902D /* book_icon_hover.png in Resources */,
+				B0138DB41C77169100EB49A4 /* bg1@3x.jpg in Resources */,
 				28FE8ED51C7474E200A7902D /* user_icon_hover@2x.png in Resources */,
 				28FE8EC81C7474E200A7902D /* calender_icon.png in Resources */,
 				28F930F81C71FCC500556337 /* login.png in Resources */,
@@ -649,6 +691,7 @@
 				282D96871C75AD60005CB4DD /* AsyncImageView.m in Sources */,
 				28F930C61C71F84700556337 /* ViewController.m in Sources */,
 				282D967C1C75AD60005CB4DD /* GoogleOAuth.m in Sources */,
+				B0138DC41C772BBF00EB49A4 /* NSString+TextDirectionality.m in Sources */,
 				282D96541C75A8B1005CB4DD /* OutfitViewController.m in Sources */,
 				28FE8EA01C743C1100A7902D /* AskingNotificationViewController.m in Sources */,
 				28211F8D1C72E6CB00BF5942 /* CompleteProfileViewController.m in Sources */,
@@ -663,6 +706,7 @@
 				28F930C01C71F84700556337 /* main.m in Sources */,
 				282D96801C75AD60005CB4DD /* NSObject+SBJSON.m in Sources */,
 				28FE8EF31C74997C00A7902D /* DescriptionTableViewCell.m in Sources */,
+				B0138DC21C772BBF00EB49A4 /* JVFloatLabeledTextField.m in Sources */,
 				282D967F1C75AD60005CB4DD /* MBProgressHUD.m in Sources */,
 				282D96881C75AD60005CB4DD /* MyAnnotation.m in Sources */,
 				282D96831C75AD60005CB4DD /* SBJsonBase.m in Sources */,

@@ -9,13 +9,13 @@
 #import <UIKit/UIKit.h>
 #import "ForgetPasswordViewController.h"
 #import "HomeViewController.h"
-
+#import "JVFloatLabeledTextField.h"
 @interface LoginViewController : UIViewController
 - (IBAction)fbLoginButton:(id)sender;
 - (IBAction)loginButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *loginButtonProp;
-@property (strong, nonatomic) IBOutlet UITextField *txt_Loginemail;
-@property (strong, nonatomic) IBOutlet UITextField *txt_loginPassword;
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_Loginemail;
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_loginPassword;
 - (IBAction)backButton:(id)sender;
 -(IBAction)hideKey:(id)sender;
 -(IBAction)ButtonforgotPassword:(id)sender;

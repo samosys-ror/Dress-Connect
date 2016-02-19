@@ -21,7 +21,8 @@
     [super viewDidLoad];
     // Do any additional setup after loading the view.
     buttonSubmitProp.layer.cornerRadius = 19.35;
-
+    const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+    txt_email.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
 }
 
 - (void)didReceiveMemoryWarning {

@@ -12,9 +12,11 @@
 {
     UIActivityIndicatorView * indicator_View;
 }
+
 @end
 
 @implementation RegisterationViewController
+const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
 @synthesize txt_email,txt_name,txt_password,buttonSubmit,view_email,view_name,view_password,lbl_Emailrequired,lbl_NameRequired,lbl_passwordRequired,img_indicatorView;
 
 - (void)viewDidLoad {
@@ -24,7 +26,9 @@
     txt_name.delegate = self;
     txt_password.delegate = self;
     buttonSubmit.layer.cornerRadius  = 19.35;
-    
+    txt_email.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_name.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_password.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
     indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
     [self.view addSubview:indicator_View];

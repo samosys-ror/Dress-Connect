@@ -23,7 +23,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     loginButtonProp.layer.cornerRadius  = 19.35;
+    const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+    txt_Loginemail.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_loginPassword.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
 
+    
     // Do any additional setup after loading the view.
     // For testing
 //    txt_Loginemail.text = @"aaa@gmail.com";
@@ -105,8 +109,10 @@
     }
     else{
         if ([[[dict_Responce valueForKey:@"response"]valueForKey:@"success"] intValue]==1) {
+            [[NSUserDefaults standardUserDefaults]setValue:[[[dict_Responce valueForKey:@"response"]valueForKey:@"result"] valueForKey:@"user_id"]forKey:@"userid"];
             HomeViewController * home = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
             [self.navigationController pushViewController:home animated:YES];
+            
             [[[UIAlertView alloc]initWithTitle:@"" message:@"Login Successful." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
         }
         else{

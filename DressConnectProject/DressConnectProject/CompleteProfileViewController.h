@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "GetStartedViewController.h"
-
+#import "JVFloatLabeledTextField.h"
 @interface CompleteProfileViewController : UIViewController<UIActionSheetDelegate,UINavigationControllerDelegate,UITextFieldDelegate,UITableViewDataSource,UITableViewDelegate>
 @property (strong, nonatomic) IBOutlet UIImageView *profile_imageView;
 - (IBAction)button_addPhoto:(id)sender;
-@property (strong, nonatomic) IBOutlet UITextField *txt_fullName;
-@property (strong, nonatomic) IBOutlet UITextField *txt_gender;
-@property (strong, nonatomic) IBOutlet UITextField *txt_dob;
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_fullName;
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_gender;
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_dob;
 - (IBAction)button_submit:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *button_submitProp;
 @property (strong, nonatomic) IBOutlet UIButton *button_completeProfile;

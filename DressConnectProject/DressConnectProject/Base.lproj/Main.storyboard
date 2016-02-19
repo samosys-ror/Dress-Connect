@@ -30,7 +30,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                         <subviews>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="splash.png" id="a0L-nn-btw">
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="bg1.jpg" id="a0L-nn-btw">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                             </imageView>
@@ -60,9 +60,9 @@
                                     <action selector="loginButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="QyJ-LA-2Xp"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" id="sO8-ri-zPq">
-                                <rect key="frame" x="40" y="114" width="240" height="128"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo.png" id="sO8-ri-zPq">
+                                <rect key="frame" x="93" y="0.0" width="134" height="158"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                             </imageView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
@@ -72,6 +72,7 @@
                     <connections>
                         <outlet property="buttonLogin" destination="1iG-xV-LIU" id="tqA-6X-C81"/>
                         <outlet property="buttonResister" destination="Rhj-xw-nZD" id="gOW-Wc-aQs"/>
+                        <outlet property="imageView" destination="sO8-ri-zPq" id="XFa-ij-iAE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
@@ -144,11 +145,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email ID" minimumFontSize="17" id="nsw-rP-NXJ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Email ID" minimumFontSize="17" id="nsw-rP-NXJ" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="161" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <action selector="hideKey:" destination="qdR-p6-2W1" eventType="editingDidEndOnExit" id="zMr-ec-LPj"/>
@@ -159,11 +160,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Name" minimumFontSize="17" id="Dpx-vU-J61">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Your Name" minimumFontSize="17" id="Dpx-vU-J61" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="205" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <action selector="hideKey:" destination="qdR-p6-2W1" eventType="editingDidEndOnExit" id="KiT-c3-ZOa"/>
@@ -174,11 +175,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="17" id="3Tu-5r-tzo">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Enter Password" minimumFontSize="17" id="3Tu-5r-tzo" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="249" width="224" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="hideKey:" destination="qdR-p6-2W1" eventType="editingDidEndOnExit" id="Lor-6y-Ha7"/>
@@ -231,7 +232,7 @@
                         <outlet property="lbl_Emailrequired" destination="XSa-jg-9ak" id="EuL-B8-vx0"/>
                         <outlet property="lbl_NameRequired" destination="cj1-Xm-1eG" id="PLp-hC-BFp"/>
                         <outlet property="lbl_passwordRequired" destination="7aD-cP-lhQ" id="G70-2h-8Pb"/>
-                        <outlet property="txt_email" destination="nsw-rP-NXJ" id="fJ0-uf-vQe"/>
+                        <outlet property="txt_email" destination="nsw-rP-NXJ" id="T86-kc-Z2t"/>
                         <outlet property="txt_name" destination="Dpx-vU-J61" id="JdT-sb-tTb"/>
                         <outlet property="txt_password" destination="3Tu-5r-tzo" id="AJn-OB-hTm"/>
                         <outlet property="view_email" destination="fwg-KU-CUb" id="H8h-hb-vIx"/>
@@ -315,11 +316,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="9Ot-Pr-Ags">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Password" minimumFontSize="17" id="9Ot-Pr-Ags" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="212" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" secureTextEntry="YES"/>
                                 <connections>
                                     <action selector="hideKey:" destination="aFX-0E-7r6" eventType="editingDidEndOnExit" id="rCM-cO-SXj"/>
@@ -350,11 +351,11 @@
                                     <action selector="ButtonforgotPassword:" destination="aFX-0E-7r6" eventType="touchUpInside" id="gwa-YS-Ylm"/>
                                 </connections>
                             </button>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="jFz-ZG-E9V">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="jFz-ZG-E9V" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="167" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no"/>
                                 <connections>
                                     <action selector="hideKey:" destination="aFX-0E-7r6" eventType="editingDidEndOnExit" id="r4d-44-SDv"/>
@@ -419,7 +420,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="MES-ZP-l6a">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Email" minimumFontSize="17" id="MES-ZP-l6a" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="140" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -492,7 +493,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" minimumFontSize="17" id="hY1-Cw-8xG">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Gender" minimumFontSize="17" id="hY1-Cw-8xG" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="16" y="326" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -509,7 +510,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" minimumFontSize="17" id="L2x-fT-Ia8">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date of Birth" minimumFontSize="17" id="L2x-fT-Ia8" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="371" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -521,7 +522,7 @@
                                     <action selector="hideKey:" destination="Ho0-1Y-JOA" eventType="editingDidEndOnExit" id="emt-8k-LPe"/>
                                 </connections>
                             </textField>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Full Name" minimumFontSize="17" id="qPf-Xs-MoZ">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Your Full Name" minimumFontSize="17" id="qPf-Xs-MoZ" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="283" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" heightSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -751,11 +752,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem tag="1" title="Home" image="book_icon.png" id="UQU-39-vov"/>
-                                    <tabBarItem tag="2" title="Events" image="calender_icon.png" id="uxB-XR-Fir"/>
-                                    <tabBarItem tag="3" title="Quick Outfit" image="bell_icon.png" id="zUP-kt-MnL"/>
-                                    <tabBarItem tag="4" title="Outfits" image="hanger_icon.png" id="McR-re-RqR"/>
-                                    <tabBarItem tag="5" title="Settings" image="user_icon.png" id="rdf-t8-b9a"/>
+                                    <tabBarItem tag="1" title="" image="book_icon.png" id="UQU-39-vov"/>
+                                    <tabBarItem tag="2" title="" image="calender_icon.png" id="uxB-XR-Fir"/>
+                                    <tabBarItem tag="3" title="" image="bell_icon.png" id="zUP-kt-MnL"/>
+                                    <tabBarItem tag="4" title="" image="hanger_icon.png" id="McR-re-RqR"/>
+                                    <tabBarItem tag="5" title="" image="user_icon.png" id="rdf-t8-b9a"/>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="E3f-oP-qab" id="MO9-as-NJB"/>
@@ -832,11 +833,11 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 <items>
-                                    <tabBarItem tag="1" title="Home" image="book_icon.png" id="wMe-ur-jnY"/>
-                                    <tabBarItem tag="2" title="Events" image="calender_icon.png" id="Rso-RZ-R3c"/>
-                                    <tabBarItem tag="3" title="Quick Outfit" image="bell_icon.png" id="Cy2-49-ElJ"/>
-                                    <tabBarItem tag="4" title="Outfits" image="hanger_icon.png" id="AVl-hO-B8M"/>
-                                    <tabBarItem tag="5" title="Settings" image="user_icon.png" id="WrU-Om-EUf"/>
+                                    <tabBarItem tag="1" title="" image="book_icon.png" id="wMe-ur-jnY"/>
+                                    <tabBarItem tag="2" title="" image="calender_icon.png" id="Rso-RZ-R3c"/>
+                                    <tabBarItem tag="3" title="" image="bell_icon.png" id="Cy2-49-ElJ"/>
+                                    <tabBarItem tag="4" title="" image="hanger_icon.png" id="AVl-hO-B8M"/>
+                                    <tabBarItem tag="5" title="" image="user_icon.png" id="WrU-Om-EUf"/>
                                 </items>
                                 <connections>
                                     <outlet property="delegate" destination="MGX-X8-fq3" id="vIK-7k-cn8"/>
@@ -965,7 +966,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Event Title" minimumFontSize="17" id="ebH-N2-xzj">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Event Title" minimumFontSize="17" id="ebH-N2-xzj" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="80" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -981,7 +982,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" minimumFontSize="17" id="Bqy-0i-jBa">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Date" minimumFontSize="17" id="Bqy-0i-jBa" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="125" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -997,7 +998,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" id="XMA-bq-8ez">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Location" minimumFontSize="17" id="XMA-bq-8ez" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="170" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1013,7 +1014,7 @@
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             </view>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dress Code" minimumFontSize="17" id="0fh-R7-hWa">
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Dress Code" minimumFontSize="17" id="0fh-R7-hWa" customClass="JVFloatLabeledTextField">
                                 <rect key="frame" x="17" y="215" width="287" height="30"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
                                 <color key="textColor" white="0.33333333333333331" alpha="1" colorSpace="calibratedWhite"/>
@@ -1079,21 +1080,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tabBar contentMode="scaleToFill" backgroundImage="tab_bar_bg.png" id="YnU-x9-yqp">
-                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
-                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
-                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
-                                <items>
-                                    <tabBarItem tag="1" title="Home" image="book_icon.png" id="WVE-K8-k0b"/>
-                                    <tabBarItem tag="2" title="Events" image="calender_icon.png" id="N12-YB-qhF"/>
-                                    <tabBarItem tag="3" title="Quick Outfit" image="bell_icon.png" id="Evq-1w-Ah1"/>
-                                    <tabBarItem tag="4" title="Outfits" image="hanger_icon.png" id="DHH-Mg-pMq"/>
-                                    <tabBarItem tag="5" title="Settings" image="user_icon.png" id="pg5-a8-COP"/>
-                                </items>
-                                <connections>
-                                    <outlet property="delegate" destination="9m8-jM-6fh" id="7CZ-qH-ZC0"/>
-                                </connections>
-                            </tabBar>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" id="7x6-9v-ndI">
                                 <rect key="frame" x="0.0" y="0.0" width="320" height="63"/>
                                 <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
@@ -1238,6 +1224,21 @@
                                     <outlet property="delegate" destination="9m8-jM-6fh" id="Z3B-F7-O1i"/>
                                 </connections>
                             </tableView>
+                            <tabBar contentMode="scaleToFill" backgroundImage="tab_bar_bg.png" id="YnU-x9-yqp">
+                                <rect key="frame" x="0.0" y="519" width="320" height="49"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                                <items>
+                                    <tabBarItem tag="1" title="" image="book_icon.png" id="WVE-K8-k0b"/>
+                                    <tabBarItem tag="2" title="" image="calender_icon.png" id="N12-YB-qhF"/>
+                                    <tabBarItem tag="3" title="" image="bell_icon.png" id="Evq-1w-Ah1"/>
+                                    <tabBarItem tag="4" title="" image="hanger_icon.png" id="DHH-Mg-pMq"/>
+                                    <tabBarItem tag="5" title="" image="user_icon.png" id="pg5-a8-COP"/>
+                                </items>
+                                <connections>
+                                    <outlet property="delegate" destination="9m8-jM-6fh" id="7CZ-qH-ZC0"/>
+                                </connections>
+                            </tabBar>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                     </view>
@@ -1258,6 +1259,7 @@
         <image name="add_green_icon.png" width="19" height="19"/>
         <image name="back_arrow.png" width="8" height="15"/>
         <image name="bell_icon.png" width="64" height="48"/>
+        <image name="bg1.jpg" width="375" height="667"/>
         <image name="book_icon.png" width="64" height="48"/>
         <image name="calender_icon.png" width="64" height="48"/>
         <image name="camera_switch.png" width="86" height="86"/>
@@ -1268,6 +1270,7 @@
         <image name="hanger_icon.png" width="64" height="48"/>
         <image name="images-7.jpeg" width="222" height="227"/>
         <image name="listr_check.png" width="10" height="10"/>
+        <image name="logo.png" width="125" height="171"/>
         <image name="reply_icon.png" width="16" height="16"/>
         <image name="splash.png" width="320" height="568"/>
         <image name="tab_bar_bg.png" width="320" height="48"/>

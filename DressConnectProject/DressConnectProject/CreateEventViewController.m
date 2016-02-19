@@ -35,7 +35,12 @@
     
     // For Button Done for Date Picker
     [but_done addTarget:self action:@selector(butDoneclicked) forControlEvents:UIControlEventTouchUpInside];
-    
+    const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+    txt_date.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_dressCode.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_eventTitle.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_location.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+
 }
 -(void)butDoneclicked
 {
@@ -97,9 +102,10 @@
 {
     if (txt_eventTitle.text.length > 0 && txt_date.text.length > 0 && txt_dressCode.text.length > 0 && txt_location.text.length > 0)
     {
+        NSString *userid = [[NSUserDefaults standardUserDefaults]valueForKey:@"userid"];
     //do Action
         web = [[WebserviceViewController alloc]init];
-        [web InsertEvent:@selector(getcreateEventResult:) tempTarget:self :@"USERID" :txt_eventTitle.text :txt_location.text :txt_dressCode.text];
+        [web InsertEvent:@selector(getcreateEventResult:) tempTarget:self :userid :txt_eventTitle.text :txt_location.text :txt_dressCode.text];
         HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
     else{

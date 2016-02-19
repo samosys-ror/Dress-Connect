@@ -36,10 +36,12 @@ BOOL buttonPress = NO;
         tab.image = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
         tab.selectedImage = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
     }
+    NSString *userid = [[NSUserDefaults standardUserDefaults]valueForKey:@"userid"];
+    NSLog(@"Login %@",userid);
     // For Getting UserID
-    web = [[WebserviceViewController alloc]init];
-    [web GetEventDetail:@selector(getcreateEventResult:) tempTarget:self :@"USERID"];
-    HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    web = [[WebserviceViewController alloc]init];
+//    [web GetEventDetail:@selector(getcreateEventResult:) tempTarget:self :userid];
+//    HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -118,16 +120,15 @@ BOOL buttonPress = NO;
 }
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    if ([item.title isEqual:@"Home"])
-    {
+    if (item.tag==1) {
         HomeViewController * homeview = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
         [self.navigationController pushViewController:homeview animated:YES];
     }
-    else if ([item.title isEqual:@"Events"])
+    else if (item.tag==2)
     {
         
     }
-    else if ([item.title isEqual:@"Outfits"])
+    else if (item.tag==4)
     {
         OutfitViewController * outfit = [self.storyboard instantiateViewControllerWithIdentifier:@"OutfitViewController"];
         [self.navigationController pushViewController:outfit animated:YES];

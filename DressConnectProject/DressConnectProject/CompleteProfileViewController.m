@@ -48,7 +48,10 @@
     table_gender.delegate = self;
     table_gender.dataSource  =self;
     genderArr = [NSArray arrayWithObjects:@"Male",@"Female",nil];
-    
+    const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+    txt_gender.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_fullName.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_dob.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     
 }
 -(void)viewWillAppear:(BOOL)animated
