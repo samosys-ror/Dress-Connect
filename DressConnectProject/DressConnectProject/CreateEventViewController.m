@@ -97,9 +97,10 @@
 {
     if (txt_eventTitle.text.length > 0 && txt_date.text.length > 0 && txt_dressCode.text.length > 0 && txt_location.text.length > 0)
     {
+        NSString *userid = [[NSUserDefaults standardUserDefaults]valueForKey:@"userid"];
     //do Action
         web = [[WebserviceViewController alloc]init];
-        [web InsertEvent:@selector(getcreateEventResult:) tempTarget:self :@"USERID" :txt_eventTitle.text :txt_location.text :txt_dressCode.text];
+        [web InsertEvent:@selector(getcreateEventResult:) tempTarget:self :userid :txt_eventTitle.text :txt_location.text :txt_dressCode.text];
         HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
     }
     else{

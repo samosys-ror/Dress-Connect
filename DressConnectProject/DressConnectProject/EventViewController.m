@@ -36,10 +36,12 @@ BOOL buttonPress = NO;
         tab.image = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
         tab.selectedImage = [tab.image imageWithRenderingMode: UIImageRenderingModeAlwaysOriginal];
     }
+    NSString *userid = [[NSUserDefaults standardUserDefaults]valueForKey:@"userid"];
+    NSLog(@"Login %@",userid);
     // For Getting UserID
-    web = [[WebserviceViewController alloc]init];
-    [web GetEventDetail:@selector(getcreateEventResult:) tempTarget:self :@"USERID"];
-    HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+//    web = [[WebserviceViewController alloc]init];
+//    [web GetEventDetail:@selector(getcreateEventResult:) tempTarget:self :userid];
+//    HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
