@@ -25,6 +25,7 @@
 @property NSString *email;
 @property NSString *name;
 @property NSString *password;
+@property IBOutlet UIImageView * img_indicatorView;
 
 
 

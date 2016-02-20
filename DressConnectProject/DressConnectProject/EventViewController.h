@@ -11,6 +11,7 @@
 #import "DescriptionTableViewCell.h"
 #import "CreateEventViewController.h"
 #import "OutfitViewController.h"
+#import "SettingViewController.h"
 
 @interface EventViewController : UIViewController<UITableViewDataSource,UITableViewDelegate,UITabBarDelegate>
 

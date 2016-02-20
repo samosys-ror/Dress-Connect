@@ -19,4 +19,5 @@
 -(IBAction)hide_key:(id)sender;
 @property IBOutlet UILabel * lbl_done;
 @property IBOutlet UIButton * but_done;
+@property IBOutlet UIImageView * img_indicatorView;
 @end

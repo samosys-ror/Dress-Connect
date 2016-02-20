@@ -56,6 +56,11 @@
     {
        
     }
+    else if (item.tag==5)
+    {
+        SettingViewController * setting = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingViewController"];
+        [self.navigationController pushViewController:setting animated:YES];
+    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

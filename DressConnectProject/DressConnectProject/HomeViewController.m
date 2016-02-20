@@ -45,6 +45,11 @@
         OutfitViewController * outfit = [self.storyboard instantiateViewControllerWithIdentifier:@"OutfitViewController"];
         [self.navigationController pushViewController:outfit animated:YES];
     }
+    else if (item.tag==5)
+    {
+        SettingViewController * setting = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingViewController"];
+        [self.navigationController pushViewController:setting animated:YES];
+    }
 }
 /*
 #pragma mark - Navigation

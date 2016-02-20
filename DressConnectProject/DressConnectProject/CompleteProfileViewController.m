@@ -15,11 +15,12 @@
     WebserviceViewController *web;
     MBProgressHUD *HUD;
     NSArray * genderArr;
+    UIActivityIndicatorView * indicator_View;
 }
 @end
 
 @implementation CompleteProfileViewController
-@synthesize txt_fullName,txt_gender,txt_dob,button_submitProp,button_completeProfile,lbl_done,but_done,table_gender;
+@synthesize txt_fullName,txt_gender,txt_dob,button_submitProp,button_completeProfile,lbl_done,but_done,table_gender,img_indicatorView,profile_imageView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,8 +31,8 @@
     button_submitProp.layer.cornerRadius  = 19.35;
     button_completeProfile.layer.cornerRadius = self.button_completeProfile.frame.size.height/2;
     button_completeProfile.layer.borderWidth=1.0f;
-    button_completeProfile.layer.borderColor =  [UIColor colorWithRed:39 green:189 blue:149 alpha:1].CGColor;
-    button_completeProfile.layer.borderColor = [UIColor greenColor].CGColor;
+    button_completeProfile.layer.borderColor=[UIColor colorWithRed:57/255.0 green:196/255.0 blue:174/255.0 alpha:1].CGColor;
+//    button_completeProfile.layer.borderColor = [UIColor greenColor].CGColor;
     button_completeProfile.clipsToBounds = YES;
     
     //for date picker
@@ -48,10 +49,17 @@
     table_gender.delegate = self;
     table_gender.dataSource  =self;
     genderArr = [NSArray arrayWithObjects:@"Male",@"Female",nil];
+    
     const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
     txt_gender.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     txt_fullName.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     txt_dob.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+
+    //for Indicator
+    indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    [self.view addSubview:indicator_View];
+
     
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -59,6 +67,8 @@
     but_done.hidden = YES;
     lbl_done.hidden = YES;
     table_gender.hidden = YES;
+    img_indicatorView.hidden = YES;
+
 }
 -(void)updateTextField:(id)sender
 {
@@ -114,6 +124,15 @@
         table_gender.hidden  =YES;
     }
    
+}
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField==txt_gender) {
+        [txt_gender resignFirstResponder];
+        [txt_fullName resignFirstResponder];
+        [txt_dob resignFirstResponder];
+        return YES;
+    }
+    return YES;
 }
 -(void)butDoneclicked
 {
@@ -222,50 +241,75 @@
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)button_submit:(id)sender {
+    NSString * str = nil;
     if (txt_fullName.text.length > 0) {
         if (txt_gender.text.length > 0) {
             if (txt_dob.text.length > 0) {
-                // do action
-                web = [[WebserviceViewController alloc]init];
-                [web Registration:@selector(getRegistrationResult:) tempTarget:self :_email :_password :_name :txt_gender.text :txt_dob.text :@"":UIImageJPEGRepresentation(self.profile_imageView.image, 0.1)];
-                HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+                if (profile_imageView.image != nil) {
+                    // do action
+                    //for indicator view
+                    button_submitProp.hidden = YES;
+                    img_indicatorView.hidden = NO;
+                    [indicator_View startAnimating];
+                    [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
+                }
+                else{
+                    //Profile Image
+                    str = @"Please select Image";
+                }
+                
                 
             }
             else{
                 //date of birth
+                str = @"Please enter Date of Birth";
+
             }
             
         }
         else{
             //gender
+            str = @"Please select Gender";
+
         }
     }
     else{
-        //gender
+        //full Name
+        str = @"Please enter Full Name";
+
     }
-    GetStartedViewController * starter = [self.storyboard instantiateViewControllerWithIdentifier:@"GetStartedViewController"];
-        [self.navigationController pushViewController:starter animated:YES];
+    if (str) {
+        [[[UIAlertView alloc]initWithTitle:@"" message:str delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+    }
     
 }
-//-(void)getRegistrationResult:(NSDictionary*)dict_Responce{
-//    NSLog(@"%@",dict_Responce);
-//    [HUD hide:YES];
-//    if ([dict_Responce isEqual:[NSNull null]]) {
-//        [[[UIAlertView alloc]initWithTitle:@"" message:@"Server error" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
-//    }
-//    else{
-//        if ([[[dict_Responce valueForKey:@"response"]valueForKey:@"success"] intValue]==1) {
-//            GetStartedViewController * starter = [self.storyboard instantiateViewControllerWithIdentifier:@"GetStartedViewController"];
-//                [self.navigationController pushViewController:starter animated:YES];
-//            [[[UIAlertView alloc]initWithTitle:@"" message:@"Registration successfully completed" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
-//        }
-//        else{
-//            [[[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"%@",[[dict_Responce valueForKey:@"response"]valueForKey:@"msg"]] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
-//        }
-//    }
-//    GetStartedViewController * starter = [self.storyboard instantiateViewControllerWithIdentifier:@"GetStartedViewController"];
-//    [self.navigationController pushViewController:starter animated:YES];
-//}
+-(void)SubmitClicked
+{
+    web = [[WebserviceViewController alloc]init];
+    [web Registration:@selector(getRegistrationResult:) tempTarget:self :_email :_password :_name :txt_gender.text :txt_dob.text :@"":UIImageJPEGRepresentation(self.profile_imageView.image, 0.1)];
+    //HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
+-(void)getRegistrationResult:(NSDictionary*)dict_Responce{
+    NSLog(@"%@",dict_Responce);
+   // [HUD hide:YES];
+    if ([dict_Responce isEqual:[NSNull null]]) {
+        [[[UIAlertView alloc]initWithTitle:@"" message:@"Server error" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+    }
+    else{
+        if ([[[dict_Responce valueForKey:@"response"]valueForKey:@"success"] intValue]==1) {
+            GetStartedViewController * starter = [self.storyboard instantiateViewControllerWithIdentifier:@"GetStartedViewController"];
+                [self.navigationController pushViewController:starter animated:YES];
+            [[[UIAlertView alloc]initWithTitle:@"" message:@"Registration successfully completed" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            [indicator_View stopAnimating];
+        }
+        else{
+            [[[UIAlertView alloc]initWithTitle:@"" message:[NSString stringWithFormat:@"%@",[[dict_Responce valueForKey:@"response"]valueForKey:@"msg"]] delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            button_submitProp.hidden = NO;
+            img_indicatorView.hidden = YES;
+            [indicator_View stopAnimating];
+        }
+    }
+}
 -(IBAction)hideKey:(id)sender
 {
     [self resignFirstResponder];

@@ -9,6 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "EventViewController.h"
 #import "OutfitViewController.h"
+#import "SettingViewController.h"
 
 @interface HomeViewController : UIViewController<UITabBarDelegate>
 

@@ -31,15 +31,17 @@
 //
 //This Method Called to create event
 -(void)InsertEvent:(SEL)tempSelector tempTarget:(id)tempTarget :(NSString *)user_id :(NSString *)title :(NSString *)location :(NSString *)dressCode;
-/*
+     //http://103.15.67.74/pro1/dressconnect/webservice/dressconnect_webservice.php?method=insert_event&userid=1&title=abc&location=aaaa&dresscode=any/*
+
 // this method Called to  get event detail & userid*/
 -(void)GetEventDetail:(SEL)tempSelector tempTarget:(id)tempTarget : (NSString *)userID;
- 
-
+     //http://103.15.67.74/pro1/dressconnect/webservice/dressconnect_webservice.php?method=get_event_detail&userid=1
  //This method called to add_new_product*/
 //
 
--(void)AddNewProduct:(SEL)tempSelector tempTarget:(id)tempTarget : (NSString *)productName : (NSString *)description : (NSString *)price : (NSString *)user_id : (NSString *)category_Id : (NSString *)brand_id :(NSString *)size_Id : (NSData *)imageData ;
+-(void)CheckEmail:(SEL)tempSelector tempTarget:(id)tempTarget : (NSString *)email ;
+//http://103.15.67.74/pro1/dressconnect/webservice/dressconnect_webservice.php?method=check_email&email=irshad.khan@samosys.com
+
 //http://103.15.67.74/pro1/twot/webservice/webservice.php?method=add_new_product&product_name=test product&description=test desc&price=12&user_id=1&category_id=1&brand_id=1&size_id=1&image_name=test.jpg
 
 /*

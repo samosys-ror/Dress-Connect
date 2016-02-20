@@ -39,11 +39,26 @@ BOOL buttonPress = NO;
     NSString *userid = [[NSUserDefaults standardUserDefaults]valueForKey:@"userid"];
     NSLog(@"Login %@",userid);
     // For Getting UserID
-//    web = [[WebserviceViewController alloc]init];
-//    [web GetEventDetail:@selector(getcreateEventResult:) tempTarget:self :userid];
-//    HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    web = [[WebserviceViewController alloc]init];
+    [web GetEventDetail:@selector(getcreateEventDetailResult:) tempTarget:self :userid];
+    //HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
 }
-
+-(void)getcreateEventDetailResult:(NSDictionary *)dict_Responce{
+    NSLog(@"%@",dict_Responce);
+    [HUD hide:YES];
+    if ([dict_Responce isEqual:[NSNull null]]) {
+        [[[UIAlertView alloc]initWithTitle:@"" message:@"Server error" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+    }
+    else{
+        if ([[[dict_Responce valueForKey:@"response"]valueForKey:@"success"] intValue]==1) {
+            
+        }
+        else{
+            
+        }
+        
+    }
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
@@ -132,6 +147,11 @@ BOOL buttonPress = NO;
     {
         OutfitViewController * outfit = [self.storyboard instantiateViewControllerWithIdentifier:@"OutfitViewController"];
         [self.navigationController pushViewController:outfit animated:YES];
+    }
+    else if (item.tag==5)
+    {
+        SettingViewController * setting = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingViewController"];
+        [self.navigationController pushViewController:setting animated:YES];
     }
 }
 /*

@@ -13,12 +13,13 @@
 @interface LoginViewController (){
     WebserviceViewController *web;
     MBProgressHUD *HUD;
+    UIActivityIndicatorView * indicator_View;
 }
 
 @end
 
 @implementation LoginViewController
-@synthesize txt_Loginemail,txt_loginPassword,loginButtonProp;
+@synthesize txt_Loginemail,txt_loginPassword,loginButtonProp,img_indicatorView;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -30,10 +31,18 @@
     
     // Do any additional setup after loading the view.
     // For testing
-//    txt_Loginemail.text = @"aaa@gmail.com";
-//    txt_loginPassword.text = @"aaa";
+//    txt_Loginemail.text = @"vvv@gmail.com";
+//    txt_loginPassword.text = @"vvv";
+    
+    indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    [self.view addSubview:indicator_View];
 
     
+}
+-(void)viewWillAppear:(BOOL)animated
+{
+    img_indicatorView.hidden = YES;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -73,10 +82,11 @@
             if([emailTest evaluateWithObject:txt_Loginemail.text] == YES)
             {
                 if (txt_loginPassword.text.length > 0) {
+                    loginButtonProp.hidden = YES;
+                    img_indicatorView.hidden = NO;
+                    [indicator_View startAnimating];
+                    [self performSelector:@selector(LoginClicked)  withObject:nil afterDelay:1.0];
         
-                    web = [[WebserviceViewController alloc]init];
-                    [web Login:@selector(GetResultofLogin:) tempTarget:self :txt_Loginemail.text :txt_loginPassword.text :@""];
-                    HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
                 }
                 else
                 {
@@ -101,9 +111,16 @@
         
    }
 }
+-(void)LoginClicked
+{
+    [self resignFirstResponder];
+    web = [[WebserviceViewController alloc]init];
+    [web Login:@selector(GetResultofLogin:) tempTarget:self :txt_Loginemail.text :txt_loginPassword.text :@""];
+    //HUD=[MBProgressHUD showHUDAddedTo:self.view animated:YES];
+}
 -(void)GetResultofLogin:(NSDictionary *)dict_Responce{
     NSLog(@"%@",dict_Responce);
-    [HUD hide:YES];
+   // [HUD hide:YES];
     if ([dict_Responce isEqual:[NSNull null]]) {
         [[[UIAlertView alloc]initWithTitle:@"" message:@"Server error" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
     }
@@ -114,8 +131,12 @@
             [self.navigationController pushViewController:home animated:YES];
             
             [[[UIAlertView alloc]initWithTitle:@"" message:@"Login Successful." delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles: nil] show];
+            [indicator_View stopAnimating];
         }
         else{
+            loginButtonProp.hidden = NO;
+            img_indicatorView.hidden = YES;
+            [indicator_View stopAnimating];
             [[[UIAlertView alloc]initWithTitle:@"" message:@"Username or password is wrong" delegate:nil cancelButtonTitle:@"Ok" otherButtonTitles:nil] show];
         }
         

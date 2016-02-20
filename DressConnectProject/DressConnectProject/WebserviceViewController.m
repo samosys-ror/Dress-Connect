@@ -164,6 +164,51 @@ AppDelegate *l_appDelegate;
         
     }
 }
+-(void)CheckEmail:(SEL)tempSelector tempTarget:(id)tempTarget : (NSString *)email
+{
+    //http://103.15.67.74/pro1/dressconnect/webservice/dressconnect_webservice.php?method=check_email&email=irshad.khan@samosys.com
+    
+    l_appDelegate=(AppDelegate *)[[UIApplication sharedApplication]delegate];
+    
+    callBackSelector=tempSelector;
+    callBackTarget=tempTarget;
+    if([Utilities CheckInternetConnection])//0: internet working
+    {
+        [UIApplication sharedApplication].networkActivityIndicatorVisible = YES;
+        NSMutableString *temp_url;
+        temp_url=[NSMutableString stringWithFormat:@"%@check_email&email=%@",WEBURL,email];
+        temp_url=(NSMutableString *)[temp_url stringByAddingPercentEscapesUsingEncoding:NSUTF8StringEncoding];
+        NSLog(@"%@",temp_url);
+        
+        
+        
+        NSMutableURLRequest *theRequest = [[NSMutableURLRequest alloc] initWithURL:[NSURL URLWithString:temp_url] cachePolicy:NSURLRequestUseProtocolCachePolicy timeoutInterval:20.0];
+        
+        
+        NSDictionary *headerFieldsDict = [[NSDictionary alloc] initWithObjectsAndKeys:@"application/x-www-form-urlencoded", @"Content-Type", nil];
+        
+        //[theRequest setHTTPBody:[temp_strJson dataUsingEncoding:NSUTF8StringEncoding]];
+        [theRequest setAllHTTPHeaderFields:headerFieldsDict];
+        [theRequest setHTTPMethod:@"GET"];
+        
+        l_theConnection = [[NSURLConnection alloc] initWithRequest:theRequest delegate:self];
+        
+        [l_theConnection start];
+        
+        if(l_theConnection)
+        {
+            NSLog(@"Request sent to get data");
+        }
+        //[temp_strJson release];
+        
+    }
+    else
+    {
+        
+    }
+    
+}
+
 -(void)InsertEvent:(SEL)tempSelector tempTarget:(id)tempTarget :(NSString *)user_id :(NSString *)title :(NSString *)location :(NSString *)dressCode
 {
     
