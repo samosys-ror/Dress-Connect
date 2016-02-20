@@ -15,6 +15,7 @@
 - (IBAction)loginButton:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *buttonResister;
 @property (strong, nonatomic) IBOutlet UIButton *buttonLogin;
+@property (strong, nonatomic) IBOutlet UIImageView *imageView;
 
 
 @end

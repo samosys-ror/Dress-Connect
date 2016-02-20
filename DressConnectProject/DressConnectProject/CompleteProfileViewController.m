@@ -16,13 +16,15 @@
     MBProgressHUD *HUD;
     NSArray * genderArr;
     UIActivityIndicatorView * indicator_View;
+    UIImage * imageForButton;
 }
 @end
 
 @implementation CompleteProfileViewController
-@synthesize txt_fullName,txt_gender,txt_dob,button_submitProp,button_completeProfile,lbl_done,but_done,table_gender,img_indicatorView,profile_imageView;
+@synthesize txt_fullName,txt_gender,txt_dob,button_submitProp,button_completeProfile,lbl_done,but_done,img_indicatorView,profile_imageView,img_plusInButton,view_name,view_gender,view_dob,lbl_DobRequired,lbl_GenderRequired,lbl_Namerequired,picker_gender;
 
 - (void)viewDidLoad {
+    imageForButton = nil;
     [super viewDidLoad];
     txt_fullName.delegate = self;
     
@@ -46,20 +48,25 @@
     
     // For Gender
     txt_gender.delegate = self;
-    table_gender.delegate = self;
-    table_gender.dataSource  =self;
     genderArr = [NSArray arrayWithObjects:@"Male",@"Female",nil];
+    
+    const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+    txt_gender.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_fullName.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_dob.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+
     //for Indicator
     indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 45,45);
     [self.view addSubview:indicator_View];
+
     
 }
 -(void)viewWillAppear:(BOOL)animated
 {
     but_done.hidden = YES;
     lbl_done.hidden = YES;
-    table_gender.hidden = YES;
+    picker_gender.hidden = YES;
     img_indicatorView.hidden = YES;
 
 }
@@ -77,16 +84,18 @@
     [UIView setAnimationDuration:0.35f];
     [UIView setAnimationBeginsFromCurrentState: NO];
     if (textField == txt_gender) {
-        but_done.hidden  =YES;
-        lbl_done.hidden = YES;
+        [txt_gender resignFirstResponder];
+        but_done.hidden  =NO;
+        lbl_done.hidden = NO;
         [self.view endEditing:YES];
-        table_gender.hidden  =NO;
+        picker_gender.hidden  =NO;
+        txt_gender.inputView= picker_gender;
         
     }
     if (textField == txt_dob) {
         lbl_done.hidden = NO;
         but_done.hidden = NO;
-        table_gender.hidden  =YES;
+        picker_gender.hidden  =YES;
         if (self.view.frame.size.height == 480)
         {
             self.view.frame = CGRectMake(self.view.frame.origin.x, -115 , self.view.frame.size.width, self.view.frame.size.height);
@@ -114,19 +123,35 @@
     else if (textField == txt_fullName) {
         but_done.hidden  =YES;
         lbl_done.hidden = YES;
-        table_gender.hidden  =YES;
+        picker_gender.hidden  =YES;
     }
-   
+    
+    lbl_Namerequired.hidden = YES;
+    lbl_GenderRequired.hidden = YES;
+     lbl_DobRequired.hidden = YES;
+    [view_name setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [view_gender setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [view_dob setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+}
+-(BOOL)textFieldShouldBeginEditing:(UITextField *)textField{
+    if (textField==txt_gender) {
+        [txt_gender resignFirstResponder];
+        [txt_fullName resignFirstResponder];
+        [txt_dob resignFirstResponder];
+        return YES;
+    }
+    return YES;
 }
 -(void)butDoneclicked
 {
     lbl_done.hidden = YES;
     but_done.hidden = YES;
+    picker_gender.hidden = YES;
     [self.view endEditing:YES];
 }
 -(void)textFieldDidEndEditing:(UITextField *)textField
 {
-    table_gender.hidden = YES;
+    picker_gender.hidden = YES;
     [UIView beginAnimations:@"animate" context:nil];
     [UIView setAnimationDuration:0.35f];
     [UIView setAnimationBeginsFromCurrentState: NO];
@@ -138,28 +163,24 @@
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.
 }
--(NSInteger)numberOfSectionsInTableView:(UITableView *)tableView
+-(NSInteger)numberOfComponentsInPickerView:(UIPickerView *)pickerView
 {
     return 1;
 }
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section
+-(NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component
 {
-    return 2;
+    return genderArr.count;
 }
--(UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath
+-(NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component
 {
-    UITableViewCell * cell = [table_gender dequeueReusableCellWithIdentifier:@"Cell"];
-    if (cell == nil) {
-        cell = [[UITableViewCell alloc]init];
-    }
-    cell.textLabel.text = [genderArr objectAtIndex:indexPath.row];
-    return cell;
+    return [genderArr objectAtIndex:row];
 }
--(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
-{
-    txt_gender.text = [genderArr objectAtIndex:indexPath.row];
-    table_gender.hidden = YES;
+-(void)pickerView:(UIPickerView *)pickerView didSelectRow:
+(NSInteger)row inComponent:(NSInteger)component{
+    [txt_gender setText:[genderArr objectAtIndex:row]];
 }
+
+
 /*
 #pragma mark - Navigation
 
@@ -219,53 +240,59 @@
     
     // Get the image from the result
     UIImage* image = [info valueForKey:@"UIImagePickerControllerOriginalImage"];
-    self.profile_imageView.image = image;
+    //self.profile_imageView.image = image;
+    [button_completeProfile setImage:image forState:UIControlStateNormal];
+    imageForButton = image;
+    img_plusInButton.hidden = YES;
+    
 }
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingImage:(UIImage *)image editingInfo:(NSDictionary *)editingInfo {
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 - (IBAction)button_submit:(id)sender {
-    NSString * str = nil;
-    if (txt_fullName.text.length > 0) {
-        if (txt_gender.text.length > 0) {
-            if (txt_dob.text.length > 0) {
-                if (profile_imageView.image != nil) {
-                    // do action
-                    //for indicator view
-                    button_submitProp.hidden = YES;
-                    img_indicatorView.hidden = NO;
-                    [indicator_View startAnimating];
-                    [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
-                }
-                else{
-                    //Profile Image
-                    str = @"Please select Image";
-                }
-                
-                
-            }
-            else{
-                //date of birth
-                str = @"Please enter Date of Birth";
-
-            }
-            
-        }
-        else{
-            //gender
-            str = @"Please select Gender";
-
-        }
+    [self.view endEditing:YES];
+    int  i = 0;
+    if (txt_fullName.text.length == 0) {
+        lbl_Namerequired.hidden = NO;
+        [view_name setBackgroundColor:[UIColor redColor]];
+        i = 1;
     }
     else{
-        //full Name
-        str = @"Please enter Full Name";
-
+        lbl_Namerequired.hidden = YES;
+        [view_name setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     }
-    if (str) {
-        [[[UIAlertView alloc]initWithTitle:@"" message:str delegate:nil cancelButtonTitle:@"OK" otherButtonTitles: nil] show];
+    if (txt_gender.text.length == 0) {
+        lbl_GenderRequired.hidden = NO;
+        [view_gender setBackgroundColor:[UIColor redColor]];
+        i = 1;
     }
-    
+    else{
+        lbl_GenderRequired.hidden = YES;
+        [view_gender setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    }
+    if (txt_dob.text.length == 0) {
+        lbl_DobRequired.hidden = NO;
+        [view_dob setBackgroundColor:[UIColor redColor]];
+        i = 1;
+    }
+    else{
+        lbl_DobRequired.hidden = YES;
+        [view_dob setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    }
+    if (txt_dob.text.length > 0 && txt_fullName.text.length > 0 && txt_gender.text.length > 0 &&imageForButton == nil) {
+        i = 1;
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Please select Your Profile Image" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        [alert show];
+    }
+    else if (i == 0){
+        // do action
+        //for indicator view
+        button_submitProp.hidden = YES;
+        img_indicatorView.hidden = NO;
+        [indicator_View startAnimating];
+        [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
+    }
+     
 }
 -(void)SubmitClicked
 {

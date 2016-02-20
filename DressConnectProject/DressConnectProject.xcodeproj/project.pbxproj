@@ -43,6 +43,9 @@
 		282D96A11C75C67D005CB4DD /* images-7.jpeg in Resources */ = {isa = PBXBuildFile; fileRef = 282D96A01C75C67D005CB4DD /* images-7.jpeg */; };
 		28AAA55C1C773C5300125132 /* SettingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAA55B1C773C5300125132 /* SettingViewController.m */; };
 		28AAA55F1C773DD600125132 /* SettingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28AAA55E1C773DD600125132 /* SettingTableViewCell.m */; };
+		28CA1A411C783E1100B80413 /* profile-cover.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28CA1A3E1C783E1100B80413 /* profile-cover.jpg */; };
+		28CA1A421C783E1100B80413 /* profile-cover@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28CA1A3F1C783E1100B80413 /* profile-cover@2x.jpg */; };
+		28CA1A431C783E1100B80413 /* profile-cover@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = 28CA1A401C783E1100B80413 /* profile-cover@3x.jpg */; };
 		28F930C01C71F84700556337 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F930BF1C71F84700556337 /* main.m */; };
 		28F930C31C71F84700556337 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F930C21C71F84700556337 /* AppDelegate.m */; };
 		28F930C61C71F84700556337 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28F930C51C71F84700556337 /* ViewController.m */; };
@@ -86,6 +89,14 @@
 		28FE8EE61C747C7500A7902D /* HomeViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FE8EE51C747C7500A7902D /* HomeViewController.m */; };
 		28FE8EEA1C74827D00A7902D /* EventViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FE8EE91C74827D00A7902D /* EventViewController.m */; };
 		28FE8EF31C74997C00A7902D /* DescriptionTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 28FE8EF21C74997C00A7902D /* DescriptionTableViewCell.m */; };
+		B0138DB21C77169100EB49A4 /* bg1.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAC1C77169100EB49A4 /* bg1.jpg */; };
+		B0138DB31C77169100EB49A4 /* bg1@2x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAD1C77169100EB49A4 /* bg1@2x.jpg */; };
+		B0138DB41C77169100EB49A4 /* bg1@3x.jpg in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAE1C77169100EB49A4 /* bg1@3x.jpg */; };
+		B0138DB51C77169100EB49A4 /* logo.png in Resources */ = {isa = PBXBuildFile; fileRef = B0138DAF1C77169100EB49A4 /* logo.png */; };
+		B0138DB61C77169100EB49A4 /* logo@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0138DB01C77169100EB49A4 /* logo@2x.png */; };
+		B0138DB71C77169100EB49A4 /* logo@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = B0138DB11C77169100EB49A4 /* logo@3x.png */; };
+		B0138DC21C772BBF00EB49A4 /* JVFloatLabeledTextField.m in Sources */ = {isa = PBXBuildFile; fileRef = B0138DBD1C772BBF00EB49A4 /* JVFloatLabeledTextField.m */; };
+		B0138DC41C772BBF00EB49A4 /* NSString+TextDirectionality.m in Sources */ = {isa = PBXBuildFile; fileRef = B0138DC11C772BBF00EB49A4 /* NSString+TextDirectionality.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -156,6 +167,9 @@
 		28AAA55B1C773C5300125132 /* SettingViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingViewController.m; sourceTree = "<group>"; };
 		28AAA55D1C773DD600125132 /* SettingTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = SettingTableViewCell.h; sourceTree = "<group>"; };
 		28AAA55E1C773DD600125132 /* SettingTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = SettingTableViewCell.m; sourceTree = "<group>"; };
+		28CA1A3E1C783E1100B80413 /* profile-cover.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile-cover.jpg"; sourceTree = "<group>"; };
+		28CA1A3F1C783E1100B80413 /* profile-cover@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile-cover@2x.jpg"; sourceTree = "<group>"; };
+		28CA1A401C783E1100B80413 /* profile-cover@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "profile-cover@3x.jpg"; sourceTree = "<group>"; };
 		28F930BA1C71F84700556337 /* DressConnectProject.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = DressConnectProject.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F930BE1C71F84700556337 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		28F930BF1C71F84700556337 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
@@ -212,6 +226,16 @@
 		28FE8EE91C74827D00A7902D /* EventViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = EventViewController.m; sourceTree = "<group>"; };
 		28FE8EF11C74997C00A7902D /* DescriptionTableViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DescriptionTableViewCell.h; sourceTree = "<group>"; };
 		28FE8EF21C74997C00A7902D /* DescriptionTableViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DescriptionTableViewCell.m; sourceTree = "<group>"; };
+		B0138DAC1C77169100EB49A4 /* bg1.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = bg1.jpg; sourceTree = "<group>"; };
+		B0138DAD1C77169100EB49A4 /* bg1@2x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg1@2x.jpg"; sourceTree = "<group>"; };
+		B0138DAE1C77169100EB49A4 /* bg1@3x.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = "bg1@3x.jpg"; sourceTree = "<group>"; };
+		B0138DAF1C77169100EB49A4 /* logo.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = logo.png; sourceTree = "<group>"; };
+		B0138DB01C77169100EB49A4 /* logo@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@2x.png"; sourceTree = "<group>"; };
+		B0138DB11C77169100EB49A4 /* logo@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "logo@3x.png"; sourceTree = "<group>"; };
+		B0138DBC1C772BBF00EB49A4 /* JVFloatLabeledTextField.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JVFloatLabeledTextField.h; sourceTree = "<group>"; };
+		B0138DBD1C772BBF00EB49A4 /* JVFloatLabeledTextField.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JVFloatLabeledTextField.m; sourceTree = "<group>"; };
+		B0138DC01C772BBF00EB49A4 /* NSString+TextDirectionality.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "NSString+TextDirectionality.h"; sourceTree = "<group>"; };
+		B0138DC11C772BBF00EB49A4 /* NSString+TextDirectionality.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "NSString+TextDirectionality.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -273,6 +297,7 @@
 		282D96551C75AD3A005CB4DD /* Custom Class */ = {
 			isa = PBXGroup;
 			children = (
+				B0138DBB1C772B9500EB49A4 /* JVFloatLabeledTextField */,
 				282D96561C75AD60005CB4DD /* WebserviceViewController.h */,
 				282D96571C75AD60005CB4DD /* WebserviceViewController.m */,
 				282D965E1C75AD60005CB4DD /* GoogleOAuth.h */,
@@ -399,6 +424,15 @@
 		28F930E41C71F86700556337 /* Images */ = {
 			isa = PBXGroup;
 			children = (
+				28CA1A3E1C783E1100B80413 /* profile-cover.jpg */,
+				28CA1A3F1C783E1100B80413 /* profile-cover@2x.jpg */,
+				28CA1A401C783E1100B80413 /* profile-cover@3x.jpg */,
+				B0138DAC1C77169100EB49A4 /* bg1.jpg */,
+				B0138DAD1C77169100EB49A4 /* bg1@2x.jpg */,
+				B0138DAE1C77169100EB49A4 /* bg1@3x.jpg */,
+				B0138DAF1C77169100EB49A4 /* logo.png */,
+				B0138DB01C77169100EB49A4 /* logo@2x.png */,
+				B0138DB11C77169100EB49A4 /* logo@3x.png */,
 				282D96A01C75C67D005CB4DD /* images-7.jpeg */,
 				282D968C1C75C3E2005CB4DD /* checkmark_icon.png */,
 				282D968D1C75C3E2005CB4DD /* checkmark_icon@2x.png */,
@@ -519,6 +553,17 @@
 			name = EventGroupController;
 			sourceTree = "<group>";
 		};
+		B0138DBB1C772B9500EB49A4 /* JVFloatLabeledTextField */ = {
+			isa = PBXGroup;
+			children = (
+				B0138DBC1C772BBF00EB49A4 /* JVFloatLabeledTextField.h */,
+				B0138DBD1C772BBF00EB49A4 /* JVFloatLabeledTextField.m */,
+				B0138DC01C772BBF00EB49A4 /* NSString+TextDirectionality.h */,
+				B0138DC11C772BBF00EB49A4 /* NSString+TextDirectionality.m */,
+			);
+			name = JVFloatLabeledTextField;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -599,10 +644,13 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B0138DB21C77169100EB49A4 /* bg1.jpg in Resources */,
+				B0138DB61C77169100EB49A4 /* logo@2x.png in Resources */,
 				28FE8ED01C7474E200A7902D /* tab_bar_bg.png in Resources */,
 				28F930E91C71F89B00556337 /* splash@2x.png in Resources */,
 				282D969B1C75C3E2005CB4DD /* listr_check@2x.png in Resources */,
 				28F930E81C71F89B00556337 /* splash.png in Resources */,
+				B0138DB51C77169100EB49A4 /* logo.png in Resources */,
 				28FE8ECE1C7474E200A7902D /* hanger_icon_hover.png in Resources */,
 				282D969C1C75C3E2005CB4DD /* listr_uncheck.png in Resources */,
 				28F930FB1C71FCC500556337 /* fb_button@2x.png in Resources */,
@@ -615,12 +663,17 @@
 				28FE8EC71C7474E200A7902D /* book_icon_hover@2x.png in Resources */,
 				28F930F91C71FCC500556337 /* back_arrow.png in Resources */,
 				282D964B1C759C05005CB4DD /* cross_icon.png in Resources */,
+				28CA1A411C783E1100B80413 /* profile-cover.jpg in Resources */,
 				28F930CB1C71F84800556337 /* Images.xcassets in Resources */,
+				B0138DB31C77169100EB49A4 /* bg1@2x.jpg in Resources */,
 				28FE8ECF1C7474E200A7902D /* hanger_icon_hover@2x.png in Resources */,
 				282D96991C75C3E2005CB4DD /* comments_icon@2x.png in Resources */,
 				28FE8ECD1C7474E200A7902D /* hanger_icon@2x.png in Resources */,
 				28F930F71C71FCC500556337 /* fb_button.png in Resources */,
+				B0138DB71C77169100EB49A4 /* logo@3x.png in Resources */,
+				28CA1A431C783E1100B80413 /* profile-cover@3x.jpg in Resources */,
 				28FE8EC61C7474E200A7902D /* book_icon_hover.png in Resources */,
+				B0138DB41C77169100EB49A4 /* bg1@3x.jpg in Resources */,
 				28FE8ED51C7474E200A7902D /* user_icon_hover@2x.png in Resources */,
 				28FE8EC81C7474E200A7902D /* calender_icon.png in Resources */,
 				28F930F81C71FCC500556337 /* login.png in Resources */,
@@ -632,6 +685,7 @@
 				28FE8ECB1C7474E200A7902D /* calender_icon_hover@2x.png in Resources */,
 				28FE8EC31C7474E200A7902D /* bell_icon_hover@2x.png in Resources */,
 				282D969E1C75C3E2005CB4DD /* reply_icon.png in Resources */,
+				28CA1A421C783E1100B80413 /* profile-cover@2x.jpg in Resources */,
 				28FE8ED21C7474E200A7902D /* user_icon.png in Resources */,
 				28FE8ED41C7474E200A7902D /* user_icon_hover.png in Resources */,
 				28FE8EC51C7474E200A7902D /* book_icon@2x.png in Resources */,
@@ -667,6 +721,7 @@
 				282D96871C75AD60005CB4DD /* AsyncImageView.m in Sources */,
 				28F930C61C71F84700556337 /* ViewController.m in Sources */,
 				282D967C1C75AD60005CB4DD /* GoogleOAuth.m in Sources */,
+				B0138DC41C772BBF00EB49A4 /* NSString+TextDirectionality.m in Sources */,
 				282D96541C75A8B1005CB4DD /* OutfitViewController.m in Sources */,
 				28FE8EA01C743C1100A7902D /* AskingNotificationViewController.m in Sources */,
 				28211F8D1C72E6CB00BF5942 /* CompleteProfileViewController.m in Sources */,
@@ -682,6 +737,7 @@
 				28F930C01C71F84700556337 /* main.m in Sources */,
 				282D96801C75AD60005CB4DD /* NSObject+SBJSON.m in Sources */,
 				28FE8EF31C74997C00A7902D /* DescriptionTableViewCell.m in Sources */,
+				B0138DC21C772BBF00EB49A4 /* JVFloatLabeledTextField.m in Sources */,
 				282D967F1C75AD60005CB4DD /* MBProgressHUD.m in Sources */,
 				282D96881C75AD60005CB4DD /* MyAnnotation.m in Sources */,
 				282D96831C75AD60005CB4DD /* SBJsonBase.m in Sources */,
@@ -752,8 +808,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				GCC_C_LANGUAGE_STANDARD = gnu99;
@@ -773,7 +829,7 @@
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				PROVISIONING_PROFILE = "0d9723c9-918e-402a-987f-9d784ed2b2b0";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 			};
 			name = Debug;
@@ -795,8 +851,8 @@
 				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				COPY_PHASE_STRIP = YES;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
@@ -809,7 +865,7 @@
 				GCC_WARN_UNUSED_VARIABLE = YES;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				MTL_ENABLE_DEBUG_INFO = NO;
-				PROVISIONING_PROFILE = "0d9723c9-918e-402a-987f-9d784ed2b2b0";
+				PROVISIONING_PROFILE = "";
 				SDKROOT = iphoneos;
 				VALIDATE_PRODUCT = YES;
 			};
@@ -819,12 +875,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DressConnectProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d9723c9-918e-402a-987f-9d784ed2b2b0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Debug;
 		};
@@ -832,12 +888,12 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
-				CODE_SIGN_IDENTITY = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
-				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution: Samosys Technologies (KRKMGDR3TM)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				INFOPLIST_FILE = DressConnectProject/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE = "0d9723c9-918e-402a-987f-9d784ed2b2b0";
+				PROVISIONING_PROFILE = "";
 			};
 			name = Release;
 		};
@@ -845,6 +901,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -856,6 +914,7 @@
 				INFOPLIST_FILE = DressConnectProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DressConnectProject.app/DressConnectProject";
 			};
 			name = Debug;
@@ -864,6 +923,8 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(SDKROOT)/Developer/Library/Frameworks",
 					"$(inherited)",
@@ -871,6 +932,7 @@
 				INFOPLIST_FILE = DressConnectProjectTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks @loader_path/Frameworks";
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE = "";
 				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/DressConnectProject.app/DressConnectProject";
 			};
 			name = Release;

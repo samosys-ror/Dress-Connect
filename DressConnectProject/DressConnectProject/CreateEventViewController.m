@@ -21,7 +21,7 @@
 @end
 
 @implementation CreateEventViewController
-@synthesize  txt_date,txt_dressCode,txt_eventTitle,txt_location,lbl_done,but_done,but_createProp,img_indicatorView;
+@synthesize  txt_date,txt_dressCode,txt_eventTitle,txt_location,lbl_done,but_done,but_createProp,img_indicatorView,lbl_date,lbl_dresscode,lbl_location,lbl_title,view_date,view_dresscode,view_location,view_title;
 - (void)viewDidLoad {
     [super viewDidLoad];
     txt_dressCode.delegate = self;
@@ -40,10 +40,19 @@
     
     // For Button Done for Date Picker
     [but_done addTarget:self action:@selector(butDoneclicked) forControlEvents:UIControlEventTouchUpInside];
+    const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+    txt_date.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_dressCode.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_eventTitle.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_location.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+
+
     // For Indicator View
     indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 45,45);
     [self.view addSubview:indicator_View];
+
+
 }
 -(void)butDoneclicked
 {
@@ -87,6 +96,15 @@
     but_done.hidden  =YES;
     lbl_done.hidden = YES;
     }
+    lbl_title.hidden = YES;
+    lbl_date.hidden = YES;
+    lbl_dresscode.hidden = YES;
+    lbl_location.hidden = YES;
+
+    [view_title setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [view_location setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [view_dresscode setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [view_date setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
 }
 /*
 #pragma mark - Navigation
@@ -104,6 +122,48 @@
 }
 - (IBAction)but_create:(id)sender
 {
+    [self.view endEditing:YES];
+    int i = 0;
+    if (txt_eventTitle.text.length == 0) {
+        lbl_title.hidden = NO;
+        [view_title setBackgroundColor:[UIColor redColor]];
+        i = 1;
+ 
+    }
+    else{
+        lbl_title.hidden = YES;
+        [view_title setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    }
+    if (txt_date.text.length == 0) {
+        lbl_date.hidden = NO;
+        [view_date setBackgroundColor:[UIColor redColor]];
+        i = 1;
+    }
+    else
+    {
+        lbl_date.hidden = YES;
+        [view_date setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    }
+    if (txt_dressCode.text.length == 0) {
+        lbl_dresscode.hidden = NO;
+        [view_dresscode setBackgroundColor:[UIColor redColor]];
+        i = 1;
+    }
+    else
+    {
+        lbl_dresscode.hidden = YES;
+        [view_dresscode setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    }
+    if (txt_location.text.length == 0) {
+        lbl_location.hidden = NO;
+        [view_location setBackgroundColor:[UIColor redColor]];
+        i = 1;
+    }
+    else
+    {
+        lbl_location.hidden = YES;
+        [view_location setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    }
     if (txt_eventTitle.text.length > 0 && txt_date.text.length > 0 && txt_dressCode.text.length > 0 && txt_location.text.length > 0)
     {
         
@@ -114,11 +174,6 @@
         [indicator_View startAnimating];
         [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
         }
-    else{
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Please Fill all the Field" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
-        [alert show];
-    }
-    
 }
 -(void)SubmitClicked
 {

@@ -17,15 +17,24 @@
 @end
 
 @implementation ForgetPasswordViewController
-@synthesize buttonSubmitProp,txt_email,img_indicatorView;
+@synthesize buttonSubmitProp,txt_email,img_indicatorView,view_email,lbl_Emailrequired;
 - (void)viewDidLoad {
     [super viewDidLoad];
+    txt_email.delegate = self;
     // Do any additional setup after loading the view.
     buttonSubmitProp.layer.cornerRadius = 19.35;
+    const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
+    txt_email.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 45,45);
     [self.view addSubview:indicator_View];
 }
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    lbl_Emailrequired.hidden = YES;
+    [view_email setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     img_indicatorView.hidden = YES;
@@ -53,34 +62,36 @@
     
 }
 - (IBAction)buttonSubmit:(id)sender {
+    [self.view endEditing:YES];
     NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
     NSString * str = nil;
+    int i = 0;
 
-    if (txt_email.text.length >0) {
-        if ([emailTest evaluateWithObject:txt_email.text] == YES) {
-            //do action
-            //for indicator view
-            buttonSubmitProp.hidden = YES;
-            img_indicatorView.hidden = NO;
-            [indicator_View startAnimating];
-            [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
-        }
-        else
-        {
-            str = @"Please Enter a valid Email Id";
-
-        }
-        
+    if (txt_email.text.length ==0) {
+        lbl_Emailrequired.hidden = NO;
+        [view_email setBackgroundColor:[UIColor redColor]];
+        i = 1;
+ 
     }
-    else
-    {
-        str = @"Please Enter Email Id";
+    else{
+        lbl_Emailrequired.hidden = YES;
+        [view_email setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
     }
-    if (str) {
-        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:str delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+    if ([emailTest evaluateWithObject:txt_email.text] == NO && txt_email.text.length) {
+        UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Please enter a Valid Email id" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
         [alert show];
-
+    }
+    else if (i == 0)
+    {
+        //do action
+        //for indicator view
+        buttonSubmitProp.hidden = YES;
+        img_indicatorView.hidden = NO;
+        [indicator_View startAnimating];
+        [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
+        
+   
     }
 }
 -(void)SubmitClicked

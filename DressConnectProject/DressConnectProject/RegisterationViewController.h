@@ -8,13 +8,13 @@
 
 #import <UIKit/UIKit.h>
 #import "CompleteProfileViewController.h"
-
+#import "JVFloatLabeledTextField.h"
 @interface RegisterationViewController : UIViewController<UITextFieldDelegate>
 - (IBAction)backButton:(id)sender;
 - (IBAction)fbRegisterButton:(id)sender;
-@property (strong, nonatomic) IBOutlet UITextField *txt_email;
-@property (strong, nonatomic) IBOutlet UITextField *txt_name;
-@property (strong, nonatomic) IBOutlet UITextField *txt_password;
+
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_name;
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_password;
 - (IBAction)submitbutton:(id)sender;
 -(IBAction)hideKey:(id)sender;
 @property (strong, nonatomic) IBOutlet UIButton *buttonSubmit;
@@ -25,6 +25,7 @@
 @property (strong, nonatomic) IBOutlet UILabel *lbl_NameRequired;
 @property (strong, nonatomic) IBOutlet UILabel *lbl_passwordRequired;
 @property IBOutlet UIImageView * img_indicatorView;
+@property (strong, nonatomic) IBOutlet JVFloatLabeledTextField *txt_email;
 
 
 

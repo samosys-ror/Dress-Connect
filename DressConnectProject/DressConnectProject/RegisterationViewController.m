@@ -15,9 +15,11 @@
     WebserviceViewController *web;
     MBProgressHUD *HUD;
 }
+
 @end
 
 @implementation RegisterationViewController
+const static CGFloat kJVFieldFloatingLabelFontSize = 11.0f;
 @synthesize txt_email,txt_name,txt_password,buttonSubmit,view_email,view_name,view_password,lbl_Emailrequired,lbl_NameRequired,lbl_passwordRequired,img_indicatorView;
 
 - (void)viewDidLoad {
@@ -27,9 +29,11 @@
     txt_name.delegate = self;
     txt_password.delegate = self;
     buttonSubmit.layer.cornerRadius  = 19.35;
-    
+    txt_email.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_name.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_password.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
     indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 45,45);
     [self.view addSubview:indicator_View];
 }
 -(void)viewWillAppear:(BOOL)animated
@@ -61,35 +65,6 @@
     [UIView setAnimationBeginsFromCurrentState: NO];
     self.view.frame = CGRectMake(self.view.frame.origin.x, 0 , self.view.frame.size.width, self.view.frame.size.height);
     [UIView commitAnimations];
-//    if (txt_email.text.length > 0) {
-//        
-//        lbl_Emailrequired.hidden = YES;
-//        [view_email setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-//        
-//        if (txt_name.text.length > 0) {
-//            
-//            lbl_NameRequired.hidden = YES;
-//            [view_name setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-//            if (txt_password.text.length > 0) {
-//                
-//                lbl_passwordRequired.hidden = YES;
-//                [view_password setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
-//                //Nothing to do
-//            }
-//            else{
-//                lbl_passwordRequired.hidden = NO;
-//                [view_password setBackgroundColor:[UIColor redColor]];
-//            }
-//        }
-//        else{
-//            lbl_NameRequired.hidden = NO;
-//            [view_name setBackgroundColor:[UIColor redColor]];
-//        }
-//    }
-//    else{
-//        lbl_Emailrequired.hidden = NO;
-//        [view_email setBackgroundColor:[UIColor redColor]];
-//    }
     
 }
 
@@ -105,6 +80,7 @@
     NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
     NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
     int  i = 0;
+    [self.view endEditing:YES];
     
    if (txt_email.text.length== 0) {
         
@@ -113,24 +89,36 @@
        i = 1;
 
     }
+   else{
+       lbl_Emailrequired.hidden = YES;
+       [view_email setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+   }
    if (txt_name.text.length == 0) {
         
         lbl_NameRequired.hidden = NO;
         [view_name setBackgroundColor:[UIColor redColor]];
        i = 1;
     }
+   else{
+       lbl_NameRequired.hidden = YES;
+       [view_name setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+   }
    if (txt_password.text.length == 0) {
         
         lbl_passwordRequired.hidden = NO;
         [view_password setBackgroundColor:[UIColor redColor]];
        i = 1;
     }
-    else {
-        if ([emailTest evaluateWithObject:txt_email.text] == NO && txt_email.text.length > 0) {
+   else{
+       lbl_passwordRequired.hidden = YES;
+       [view_password setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+   }
+    if ([emailTest evaluateWithObject:txt_email.text] == NO && txt_email.text.length > 0 && txt_email.text.length > 0 && txt_name.text.length > 0 && txt_password.text.length > 0) {
+        i = 1;
             UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Please enter a Valid Email id" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
-        }
-        else if(i==0){
+    }
+    else if(i==0){
 
             lbl_Emailrequired.hidden = YES;
             lbl_NameRequired.hidden = YES;
@@ -144,7 +132,6 @@
             [indicator_View startAnimating];
             [self performSelector:@selector(SubmitClicked)  withObject:nil afterDelay:1.0];
         
-    }
     }
 }
 

@@ -63,22 +63,22 @@
 */
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    if ([item.title isEqual:@"Home"])
+    if (item.tag==1)
     {
         HomeViewController * homeview = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
         [self.navigationController pushViewController:homeview animated:YES];
     }
-    else if ([item.title isEqual:@"Events"])
+    else if (item.tag==2)
     {
         EventViewController * event = [self.storyboard instantiateViewControllerWithIdentifier:@"EventViewController"];
         [self.navigationController pushViewController:event animated:YES];
     }
-    else if ([item.title isEqual:@"Outfits"])
+    else if (item.tag==3)
     {
         OutfitViewController * outfit = [self.storyboard instantiateViewControllerWithIdentifier:@"OutfitViewController"];
         [self.navigationController pushViewController:outfit animated:YES];
     }
-    else if ([item.title isEqual:@"Settings"])
+    else if (item.tag==5)
     {
 
     }

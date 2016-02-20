@@ -135,21 +135,20 @@ BOOL buttonPress = NO;
 }
 -(void)tabBar:(UITabBar *)tabBar didSelectItem:(UITabBarItem *)item
 {
-    if ([item.title isEqual:@"Home"])
-    {
+    if (item.tag==1) {
         HomeViewController * homeview = [self.storyboard instantiateViewControllerWithIdentifier:@"HomeViewController"];
         [self.navigationController pushViewController:homeview animated:YES];
     }
-    else if ([item.title isEqual:@"Events"])
+    else if (item.tag==2)
     {
         
     }
-    else if ([item.title isEqual:@"Outfits"])
+    else if (item.tag==4)
     {
         OutfitViewController * outfit = [self.storyboard instantiateViewControllerWithIdentifier:@"OutfitViewController"];
         [self.navigationController pushViewController:outfit animated:YES];
     }
-    else if ([item.title isEqual:@"Settings"])
+    else if (item.tag==5)
     {
         SettingViewController * setting = [self.storyboard instantiateViewControllerWithIdentifier:@"SettingViewController"];
         [self.navigationController pushViewController:setting animated:YES];

@@ -18,13 +18,31 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view, typically from a nib.
+    [_imageView setFrame:CGRectMake(_imageView.frame.origin.x, _imageView.frame.origin.y-_imageView.frame.size.height, _imageView.frame.size.width, _imageView.frame.size.height)];
     buttonLogin.layer.cornerRadius = 19.35;
     buttonResister.layer.cornerRadius  = 19.35;
     buttonResister.clipsToBounds = YES;
     buttonLogin.clipsToBounds = YES;
-    
+    buttonLogin.hidden=YES;
+    buttonResister.hidden=YES;
 }
-
+-(void)viewWillAppear:(BOOL)animated{
+    [UIView animateWithDuration:1.0
+                          delay:0.35
+                        options: UIViewAnimationOptionCurveEaseIn
+                     animations:^{
+                         [_imageView setFrame:CGRectMake(_imageView.frame.origin.x, 100, _imageView.frame.size.width, _imageView.frame.size.height)];
+                     }
+                     completion:^(BOOL finished){
+                         NSLog(@"Done!");
+                         [self performSelector:@selector(hiddenNo) withObject:nil afterDelay:0.1];
+                         
+                     }];
+}
+-(void)hiddenNo{
+    buttonLogin.hidden=NO;
+    buttonResister.hidden=NO;
+}
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
     // Dispose of any resources that can be recreated.

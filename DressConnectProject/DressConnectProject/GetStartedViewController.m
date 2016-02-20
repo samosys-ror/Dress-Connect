@@ -24,7 +24,7 @@
     color = [[NSMutableArray alloc] init];
     msgArray = [[NSMutableArray alloc] init];
         //[resent]
-    color =[[NSMutableArray alloc]initWithObjects:@"splash.png", @"splash.png", @"splash.png", nil];
+    color =[[NSMutableArray alloc]initWithObjects:@"splash.png", @"bg1.jpg", @"splash.png", nil];
     
     msgArray = [[NSMutableArray alloc] initWithObjects:@"Title is a new way to navigate,post,and connect with your community.", @"Simply Post a Product or Service; all the users in its geo-location will see it.", @"Make a connection.", nil];
     
@@ -52,7 +52,7 @@
     }
     
     pageControl.numberOfPages=color.count;
-    timer=[NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
+//    timer=[NSTimer scheduledTimerWithTimeInterval:2.5 target:self selector:@selector(scrollingTimer) userInfo:nil repeats:YES];
     
     
 }

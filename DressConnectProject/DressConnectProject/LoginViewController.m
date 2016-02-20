@@ -19,23 +19,36 @@
 @end
 
 @implementation LoginViewController
-@synthesize txt_Loginemail,txt_loginPassword,loginButtonProp,img_indicatorView;
+@synthesize txt_Loginemail,txt_loginPassword,loginButtonProp,img_indicatorView,view_email,view_password,lbl_Emailrequired,lbl_passwordRequired;
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     loginButtonProp.layer.cornerRadius  = 19.35;
-
+    const static CGFloat kJVFieldFloatingLabelFontSize = 10.0f;
+    txt_Loginemail.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_loginPassword.floatingLabelFont = [UIFont boldSystemFontOfSize:kJVFieldFloatingLabelFontSize];
+    txt_Loginemail.delegate = self;
+    txt_loginPassword.delegate = self;
+    
     // Do any additional setup after loading the view.
     // For testing
-    txt_Loginemail.text = @"vvv@gmail.com";
-    txt_loginPassword.text = @"vvv";
+//    txt_Loginemail.text = @"vvv@gmail.com";
+//    txt_loginPassword.text = @"vvv";
     
     indicator_View = [[UIActivityIndicatorView alloc] initWithActivityIndicatorStyle:UIActivityIndicatorViewStyleWhiteLarge];
-    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 60,60);
+    indicator_View.frame = CGRectMake(img_indicatorView.frame.origin.x,img_indicatorView.frame.origin.y, 45,45);
     [self.view addSubview:indicator_View];
 
     
 }
+-(void)textFieldDidBeginEditing:(UITextField *)textField
+{
+    lbl_Emailrequired.hidden = YES;
+    lbl_passwordRequired.hidden = YES;
+    [view_email setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    [view_password setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+}
+
 -(void)viewWillAppear:(BOOL)animated
 {
     img_indicatorView.hidden = YES;
@@ -69,43 +82,48 @@
 }
 -(IBAction)loginButton:(id)sender
 {
-    {
+    int i = 0;
+    [self.view endEditing:YES];
         NSString *emailRegEx = @"[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,4}";
         NSPredicate *emailTest = [NSPredicate predicateWithFormat:@"SELF MATCHES %@", emailRegEx];
-        NSString * str = nil;
+    if (txt_Loginemail.text.length == 0) {
         
-        if (txt_Loginemail.text.length > 0) {
-            if([emailTest evaluateWithObject:txt_Loginemail.text] == YES)
-            {
-                if (txt_loginPassword.text.length > 0) {
-                    loginButtonProp.hidden = YES;
-                    img_indicatorView.hidden = NO;
-                    [indicator_View startAnimating];
-                    [self performSelector:@selector(LoginClicked)  withObject:nil afterDelay:1.0];
-        
-                }
-                else
-                {
-                    
-                    str  = @"Please Enter Password";
-                }
-            }
-            else
-            {
-                str  = @"Please Enter Valid Email Id";
-            }
-            
-        }
-        else
-        {
-            str  = @"Please Enter Email Id";
-        }
-        if (str) {
-            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:str delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
+        lbl_Emailrequired.hidden = NO;
+        [view_email setBackgroundColor:[UIColor redColor]];
+        i = 1;
+    }
+    else{
+        lbl_Emailrequired.hidden = YES;
+        [view_email setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+    }
+     if(txt_loginPassword.text.length == 0)
+    {
+        lbl_passwordRequired.hidden = NO;
+        [view_password setBackgroundColor:[UIColor redColor]];
+        i = 1;
+ 
+    }
+     else{
+         lbl_passwordRequired.hidden = YES;
+         [view_password setBackgroundColor:[UIColor groupTableViewBackgroundColor]];
+     }
+     if([emailTest evaluateWithObject:txt_Loginemail.text] == NO && txt_Loginemail.text.length > 0 && txt_loginPassword.text.length > 0) {
+         i = 1;
+            UIAlertView * alert = [[UIAlertView alloc]initWithTitle:@"" message:@"Please enter a Valid Email id" delegate:nil cancelButtonTitle:@"OK" otherButtonTitles:nil];
             [alert show];
         }
-        
-   }
+        else if (i == 0)
+        {
+            loginButtonProp.hidden = YES;
+            img_indicatorView.hidden = NO;
+            [indicator_View startAnimating];
+            [self performSelector:@selector(LoginClicked)  withObject:nil afterDelay:1.0];
+        }
+    
+    
+    
+    
+    
 }
 -(void)LoginClicked
 {
