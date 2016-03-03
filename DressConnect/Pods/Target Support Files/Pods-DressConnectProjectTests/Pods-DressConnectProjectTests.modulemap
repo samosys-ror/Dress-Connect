@@ -1,0 +1,6 @@
+framework module Pods_DressConnectProjectTests {
+  umbrella header "Pods-DressConnectProjectTests-umbrella.h"
+
+  export *
+  module * { export * }
+}

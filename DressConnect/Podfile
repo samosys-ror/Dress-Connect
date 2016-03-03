@@ -1,0 +1,11 @@
+platform :ios, '8.0'
+use_frameworks!
+pod 'Google/Analytics'
+target 'DressConnectProject' do
+
+end
+
+target 'DressConnectProjectTests' do
+
+end
+
